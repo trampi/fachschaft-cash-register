@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CashRegister</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+
+<div class="container">
+
+  <div class="main-content-box">
+    <%= image_tag "header.png", class: "img-responsive" %>
+
+
+
+    <div role="tabpanel">
+
+      <%= render "layouts/flash" %>
+
+      <!-- Nav tabs -->
+      <ul id="navigation" class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="<%= articles_path %>" role="tab" data-toggle="tab">Stock</a></li>
+        <li role="presentation"><a href="#report" role="tab" data-toggle="tab">Report</a></li>
+        <li role="presentation"><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>
+
+        <li role="presentation" class="pull-right"><a href="#logout" role="logout" data-toggle="tab">Logout</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+</body>
+</html>

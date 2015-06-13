@@ -1,0 +1,46 @@
+<div class="clearfix">
+  <h1 class="pull-left">Stock</h1>
+
+  <a href="<%= new_article_path %>" class="pull-right btn btn-default hidden-xs">
+    <span class="glyphicon glyphicon-plus"></span> Add Item
+  </a>
+</div>
+
+
+<table class="table margin-top-2">
+  <thead>
+  <th>Name</th>
+  <th>Barcode</th>
+  <th>Stock</th>
+  <th>Price</th>
+  <th>Package Size</th>
+  <th>Stock change</th>
+  <th>Manage</th>
+  </thead>
+
+  <tbody>
+
+  <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.name %></td>
+        <td><%= article.barcode %></td>
+        <td><%= if article.stock.nil? then 0 else article.stock end %></td>
+        <td><%= number_to_currency(article.price, unit: "€", format: "%n %u") %></td>
+        <td><%= article.package_size %></td>
+        <td>
+          <%= form_for article, url: update_article_stock_path(article), html: {class: "form-horizontal"}, method: "post" do |f| %>
+              <input name="stock" type="number" value="1" />
+              <button name="stock_type" value="units" class="btn btn-default">Units</button>
+              <button name="stock_type" value="packages" class="btn btn-default">Packages</button>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to "Edit", edit_article_path(article), class: "btn btn-primary" %>
+          <%= link_to "Delete", article_path(article), method: :delete,
+                      data: {confirm: "Do you really want to delete the article? "}, class: "btn btn-danger" %>
+        </td>
+      </tr>
+  <% end %>
+
+  </tbody>
+</table>
