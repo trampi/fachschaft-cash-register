@@ -8,11 +8,11 @@
 </head>
 <body>
 
-<%= image_tag "header.png", class: "header" %>
+<div class="container">
+    <%= image_tag "header.png", class: "img-responsive header-login" %>
+</div>
 
 <div class="container main-content-box login">
-
-  <%= render "layouts/flash" %>
 
   <%= yield %>
 

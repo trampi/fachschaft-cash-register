@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
+
   authenticated :user do
     root to: 'articles#index', as: :authenticated_root
     resources :articles
+    get 'reports' => 'reports#index'
     post 'articles/:id/update_stock' => 'articles#update_stock', as: :update_article_stock
   end
 

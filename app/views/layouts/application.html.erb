@@ -23,11 +23,13 @@
 
       <!-- Nav tabs -->
       <ul id="navigation" class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="<%= articles_path %>" role="tab" data-toggle="tab">Stock</a></li>
-        <li role="presentation"><a href="#report" role="tab" data-toggle="tab">Report</a></li>
-        <li role="presentation"><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>
+        <li role="presentation" class="<%= 'active' if articles_controller? %>"><a href="<%= articles_path %>">Stock</a></li>
+        <li role="presentation" class="<%= 'active' if reports_controller? %>"><a href="<%= reports_path %>">Report</a></li>
+        <li role="presentation" class="<%= 'active' if settings_controller? %>"><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>
 
-        <li role="presentation" class="pull-right"><a href="#logout" role="logout" data-toggle="tab">Logout</a></li>
+        <li role="presentation" class="pull-right">
+          <%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
+        </li>
       </ul>
 
       <!-- Tab panes -->

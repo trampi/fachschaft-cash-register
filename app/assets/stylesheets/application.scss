@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require morris
  *= require_tree .
  *= require_self
  */
@@ -49,4 +50,8 @@ body {
 
 h1, h2, h3 {
   margin-top: 0;
+}
+
+.header-login {
+  margin: 0 auto;
 }
