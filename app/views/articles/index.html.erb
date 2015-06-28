@@ -20,7 +20,7 @@
   <tbody>
 
   <% @articles.each do |article| %>
-      <tr>
+      <tr class="<%= row_stock_class(article) %>">
         <td><%= article.name %></td>
         <td class="text-right"><%= if article.stock.nil? then 0 else article.stock end %></td>
         <td class="text-right"><%= number_to_currency(article.price, unit: "€", format: "%n %u") %></td>
