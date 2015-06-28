@@ -17,3 +17,8 @@
 //= require raphael
 //= require morris
 //= require_tree .
+
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+});
