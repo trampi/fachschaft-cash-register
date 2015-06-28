@@ -10,9 +10,9 @@
 <table class="table margin-top-2">
   <thead>
   <th>Name</th>
-  <th>Stock</th>
-  <th>Price</th>
-  <th>Package Size</th>
+  <th class="text-right">Stock</th>
+  <th class="text-right">Price</th>
+  <th class="text-right">Package Size</th>
   <th>Stock change <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="Enter a number and press 'Units' to add the given amount to the stock. You can choose 'Packages' to add the given amount of packages (look for the column 'Package Size'). Entering a negative amount subtracts the given amount."></span></th>
   <th>Manage</th>
   </thead>
@@ -22,9 +22,9 @@
   <% @articles.each do |article| %>
       <tr>
         <td><%= article.name %></td>
-        <td><%= if article.stock.nil? then 0 else article.stock end %></td>
-        <td><%= number_to_currency(article.price, unit: "€", format: "%n %u") %></td>
-        <td><%= article.package_size %></td>
+        <td class="text-right"><%= if article.stock.nil? then 0 else article.stock end %></td>
+        <td class="text-right"><%= number_to_currency(article.price, unit: "€", format: "%n %u") %></td>
+        <td class="text-right"><%= article.package_size %></td>
         <td>
           <%= form_for article, url: update_article_stock_path(article), html: {class: "form-horizontal"}, method: "post" do |f| %>
               <input name="stock" type="number" value="1" />
