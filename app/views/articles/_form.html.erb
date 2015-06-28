@@ -52,6 +52,7 @@
             <%= link_to "Delete", article_path(@article), method: :delete,
                         data: {confirm: "Wollen Sie das Projekt wirklich löschen? "}, class: "btn btn-danger" %>
         <% end %>
+        <%= link_to "Cancel", :back, class: "btn btn-default" %>
       </div>
     </div>
 <% end %>
