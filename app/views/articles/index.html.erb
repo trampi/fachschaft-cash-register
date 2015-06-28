@@ -10,7 +10,6 @@
 <table class="table margin-top-2">
   <thead>
   <th>Name</th>
-  <th>Barcode</th>
   <th>Stock</th>
   <th>Price</th>
   <th>Package Size</th>
@@ -23,7 +22,6 @@
   <% @articles.each do |article| %>
       <tr>
         <td><%= article.name %></td>
-        <td><%= article.barcode %></td>
         <td><%= if article.stock.nil? then 0 else article.stock end %></td>
         <td><%= number_to_currency(article.price, unit: "€", format: "%n %u") %></td>
         <td><%= article.package_size %></td>
