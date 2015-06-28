@@ -45,6 +45,7 @@ class ArticlesController < ApplicationController
   end
 
   def update_stock
+    flash['notice'] = "Stock updated."
     if params[:stock_type] == "units"
       update_stock_by_units
     else

@@ -21,4 +21,8 @@
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
+
+    window.setTimeout(function() {
+        $(".growl").fadeOut();
+    }, 10000);
 });
